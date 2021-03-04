@@ -1,26 +1,26 @@
 # >>> RESUMO DE RSTUDIO <<< 
 
-#FunÁ„o de printar: print()
+#Fun√ß√£o de printar: print()
 string_exemplo <- "Alou, meu consagrado" 
-string_exemplo_2 <- 'Aspas simples tambÈm valem!'
+string_exemplo_2 <- 'Aspas simples tamb√©m valem!'
 print(string_exemplo)
 print(string_exemplo_2)
 
 #Tipos de dados em RStudio
-class("Isso È um texto") #N„o chamamos aqui de String!
+class("Isso √© um texto") #N√£o chamamos aqui de String!
 class(5.55555)
 class(TRUE)
 
-#Operadores Matem·ticos
+#Operadores Matem√°ticos
 1 + 1 
 2 - 1
 3 * 3
 4 / 2
 10 %% 3 #resto
-5 ^ 2 #exponenciaÁ„o
-#RStudio segue as ordens de operaÁ„o parecida com Python
+5 ^ 2 #exponencia√ß√£o
+#RStudio segue as ordens de opera√ß√£o parecida com Python
 
-#Operadores Racionais ("lÛgicos")
+#Operadores Racionais ("l√≥gicos")
 4 > 2
 5 < 2
 5 >= 2
@@ -28,62 +28,69 @@ class(TRUE)
 3 == 3
 5 != 3
 
-#Operadores LÛgicos
-x > 2 & y == "condiÁ„o" #condiÁ„o AND
-x > 2 | y == "condiÁ„o"  #condiÁ„o OR
-!(y == "condiÁ„o") #condiÁ„o NOT, ou seja, tudo menos essa condiÁ„o
+#Operadores L√≥gicos
+x > 2 & y == "condi√ß√£o" #condi√ß√£o AND
+x > 2 | y == "condi√ß√£o"  #condi√ß√£o OR
+!(y == "condi√ß√£o") #condi√ß√£o NOT, ou seja, tudo menos essa condi√ß√£o
 
 #Bibliotecas em RStudio
-library(tools) #Abre uma bibloteca do sistema (ou j· baixada) com suas funcionalidades
-install.packages(ggplot2) #Instala uma biblioteca que n„o est· no sistema por deafult
+library(tools) #Abre uma bibloteca do sistema (ou j√° baixada) com suas funcionalidades
+install.packages(ggplot2) #Instala uma biblioteca que n√£o est√° no sistema por deafult
 library(ggplot2) #A biblioteca PRECISA ser aberta depois de instalada para ser utilizada
 help(package="ggplot2")
 
 #Vetores - conjunto de valores de mesmo tipo (em R) ou uma coluna em datasets
-# >>> OBS: indexaÁ„o dos valores tem sintaxe parecida com lista em Python (mas sem comeÁar por "0", e sem valor excludente)
+# >>> OBS: indexa√ß√£o dos valores tem sintaxe parecida com lista em Python (mas sem come√ßar por "0", e sem valor excludente)
 animais <- c("cachorro", "gato", "coelho", "cavalo", NA)
 peso_animais_em_kg <- c(10, 2, 1.5, NA)
 animais[1:3]
-peso_animais_em_kg >= 5 #Procura os valores dentro do vetor qem que essa condiÁ„o È verdadeira (devolve valor lÛgico!)
+peso_animais_em_kg >= 5 #Procura os valores dentro do vetor qem que essa condi√ß√£o √© verdadeira (devolve valor l√≥gico!)
 animais == 'cachorro'
 length(animais) #Tamanho do vetor (quantos valores existem dentro dele)
-peso_animais_em_kg[is.na(peso_animais_em_kg)] <- 400 #Procura qual valor È NA 
+peso_animais_em_kg[is.na(peso_animais_em_kg)] <- 400 #Procura qual valor √© NA 
 peso_animais_em_kg
-animais[is.na(animais)] #Sem atribuiÁ„o de novo valor
-mean(peso_animais_em_kg) #Mostra a mÈdia
+animais[is.na(animais)] #Sem atribui√ß√£o de novo valor
+mean(peso_animais_em_kg) #Mostra a m√©dia
 sort(peso_animais_em_kg) #Organiza os valores (ordem crescente)!
 sort(animais) #Organiza os valores por tamanho de texto (ordem decrescente)!
-animais <- animais[-5] #Deleta valor com Ìndice determinado
+animais <- animais[-5] #Deleta valor com √≠ndice determinado
 dataframe_animais <- data.frame(animais, peso_animais_em_kg) #MUITO IMPORTANTE!
 dataframe_animais
 
 #Dataframes (e abrindo/escrevendo arquivo .CSV)
-setwd("/Users/Isabel/Desktop") #Salva o cÛdigo no diretÛrio especificado (onde est· o arquivo)
+setwd("/Users/Isabel/Desktop") #Salva o c√≥digo no diret√≥rio especificado (onde est√° o arquivo)
 arquivo <- "anymaze_results_MWM.csv"
 arquivo_aberto <- read.csv(arquivo)
-probe_test <- arquivo_aberto[arquivo_aberto$Stage == "5",] #A vÌrgula aqui, sem definir os n˙meros de colunas, faz com que ele pegue todas 
+probe_test <- arquivo_aberto[arquivo_aberto$Stage == "5",] #A v√≠rgula aqui, sem definir os n√∫meros de colunas, faz com que ele pegue todas 
 probe_test_5rows_5cols = probe_test[1:5, 1:5]
 write.csv(probe_test, file = "/Users/Isabel/Desktop/anymaze_results_probetest.csv", row.names = FALSE)
 probe_test_5rows_5cols$nova_coluna <- NA #Cria nova coluna! 
 probe_test_5rows_5cols
-probe_test_5rows_5cols <- probe_test_5rows_5cols[,-6] #Deleta a coluna com Ìndice determinado!
-probe_test_5rows_5cols <- probe_test_5rows_5cols[-5,] #Deleta a linha com Ìndice determinado!
+probe_test_5rows_5cols <- probe_test_5rows_5cols[,-6] #Deleta a coluna com √≠ndice determinado!
+probe_test_5rows_5cols <- probe_test_5rows_5cols[-5,] #Deleta a linha com √≠ndice determinado!
 probe_test_5rows_5cols
 str(arquivo_aberto) #"Structure", MUITO IMPORTANTE!
 str(probe_test_5rows_5cols)
 
 #Estrutura de Controle Condicional - if/else
 # >>>SINTAXE: 
-if(condiÁ„o) {
+if(condi√ß√£o) {
     comando_1
 }else{
     comando_2
 }
-#TambÈm pode ser escrito como:
-if(condiÁ„o){...}else{...} #mas pulando linha ajuda!
+#Tamb√©m pode ser escrito como:
+if(condi√ß√£o){...}else{...} #mas pulando linha ajuda!
 
-#Estrutura de RepetiÁ„o Definida - for
+#Estrutura de Repeti√ß√£o Definida - for
 # >>>SINTAXE: 
-for (condiÁ„o) {
+for (condi√ß√£o) {
   comando
+}
+
+#Fun√ß√µes
+# >>>SINTAXE:
+funcao_nova <- function(argumento1, argumento_N){
+  comandos
+  return(resultado_da_funcao)
 }
