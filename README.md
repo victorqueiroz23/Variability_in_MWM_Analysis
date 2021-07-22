@@ -1,2 +1,2 @@
-# Repositório de Data Science do Victinho
+# Repositório de Data Science
 
